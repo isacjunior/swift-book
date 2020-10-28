@@ -8,6 +8,7 @@ The proposal of this repository is to create a document that contains a resume o
     - [Type Annotations](#type-annotations)
     - [Comments](#comments)
     - [Type Aliases](#type-aliases)
+    - [Tuples](#tuples)
 
 
 # The Basics
@@ -72,4 +73,44 @@ Type aliases define an alternative name for an existing type. You define type al
 ```swift
 typealias Students = Array<Student>
 ```
+
+## Tuples
+
+`Tuples` group multiple values into a single compound value.
+
+```swift
+let http404Error = (404, "Not Found")
+// http404Error is of type (Int, String), and equals (404, "Not Found")
+```
+
+You can decompose a tuple`s contents into separate constants or variables:
+
+```swift
+let (statusCode, statusMessage) = http404Error
+print("The status code is \(statusCode)")
+```
+
+If you only need some of the tuple`s values, ignore parts of the tuple with an underscore(_):
+
+```swift
+let (statusCode, _) = http404Error
+print("The status code is \(statusCode)")
+```
+
+Alternatively, access the individual element values in a tuple using index:
+
+```swift
+print("The status code is \(http404Error.0)")
+```
+
+You can name the individual elements in a tuple when the tuple is defined:
+
+```swift
+let http200Status = (statusCode: 200, description: "OK")
+print("The status code is \(http200Status.statusCode)")
+```
+
+> **_NOTE:_** Tuples are particularly useful as the return values of functions.
+
+
 
