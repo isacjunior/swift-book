@@ -10,6 +10,7 @@ The proposal of this repository is to create a document that contains a resume o
     - [Type Aliases](#type-aliases)
     - [Tuples](#tuples)
     - [Optionals](#optionals)
+    - [Forced Unwrapping](#forced-unwrapping)
 
 
 # The Basics
@@ -50,7 +51,7 @@ You can define multiple related variables of the same type on a single line.
 ```swift
 var red, green, blue: Double
 ```
-> **_NOTE:_** It's rare that you need to write type annotations in practice. If you provide an initial value for a constant or variable, Swift can almost always infer the type to be used for that constant or variable.
+> **NOTE:** It's rare that you need to write type annotations in practice. If you provide an initial value for a constant or variable, Swift can almost always infer the type to be used for that constant or variable.
 
 ## Comments
 
@@ -111,7 +112,7 @@ let http200Status = (statusCode: 200, description: "OK")
 print("The status code is \(http200Status.statusCode)")
 ```
 
-> **_NOTE:_** Tuples are particularly useful as the return values of functions.
+> **NOTE:** Tuples are particularly useful as the return values of functions.
 
 ## Optionals
 
@@ -128,4 +129,17 @@ If you define an optional variable without providing a default value, the variab
 ```swift
 var surveyAnswer: String? // nil
 ```
+
+## Forced Unwrapping
+
+The exclamation point effectively says, "I know that this optional has a value".
+
+```swift
+if convertedNumber != nil {
+    print("convertedNumber has a integer value of \(convertedNumber!)")
+}
+```
+
+> **NOTE:**
+Always make sure that an optional contains a non-nil value before using `!` to avoid runtime error.
 
