@@ -9,6 +9,7 @@ The proposal of this repository is to create a document that contains a resume o
     - [Comments](#comments)
     - [Type Aliases](#type-aliases)
     - [Tuples](#tuples)
+    - [Optionals](#optionals)
 
 
 # The Basics
@@ -112,5 +113,19 @@ print("The status code is \(http200Status.statusCode)")
 
 > **_NOTE:_** Tuples are particularly useful as the return values of functions.
 
+## Optionals
 
+You use `optionals` in situations where a value may be absent.
+
+```swift
+let possibleNumber: String = "123"
+let convertedNumber: Int? = Int(possibleNumber)
+print(type(of: convertedNumber)) // Optional<Int>
+```
+
+If you define an optional variable without providing a default value, the variable is automatically set to `nil` for you:
+
+```swift
+var surveyAnswer: String? // nil
+```
 
