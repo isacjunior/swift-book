@@ -7,6 +7,7 @@ The proposal of this repository is to create a document that contains a resume o
     - [Constants and variables](#constants-and-variables)
     - [Type Annotations](#type-annotations)
     - [Comments](#comments)
+    - [Type Aliases](#type-aliases)
 
 
 # The Basics
@@ -49,4 +50,26 @@ var red, green, blue: Double
 ```
 > **_NOTE:_** It's rare that you need to write type annotations in practice. If you provide an initial value for a constant or variable, Swift can almost always infer the type to be used for that constant or variable.
 
+## Comments
+
+Use comments to include no executable text in your code.
+
+```swift
+// This is a comments
+```
+
+Multiline comments
+
+```swift
+/* This is also a comment
+but is written over multiple lines */
+```
+
+## Type Aliases
+
+Type aliases define an alternative name for an existing type. You define type aliases with the `typealias` keyword.
+
+```swift
+typealias Students = Array<Student>
+```
 
