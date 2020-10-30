@@ -11,6 +11,7 @@ The proposal of this repository is to create a document that contains a resume o
     - [Tuples](#tuples)
     - [Optionals](#optionals)
     - [Forced Unwrapping](#forced-unwrapping)
+    - [Optional Binding](#optional-binding)
 
 
 # The Basics
@@ -142,4 +143,20 @@ if convertedNumber != nil {
 
 > **NOTE:**
 Always make sure that an optional contains a non-nil value before using `!` to avoid runtime error.
+
+## Optional Binding
+
+You use optional binding to find out whether an optional contains a value, and if so, to make that value available as a temporary constant or variable.
+
+```swift
+let possibleNumber = "123"
+
+if let actualNumber = Int(possibleNumber) {
+    print("The string \"\(possibleNumber)\" has an integer value of \(actualNumber)")
+} else {
+    print("The string \"\(possibleNumber)\" could not be converted to an integer")
+}
+```
+> **NOTE:** Constant and variables created with optional binding is available only within the body of the body statement.
+
 
