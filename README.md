@@ -18,6 +18,7 @@ The proposal of this repository is to create a document that contains a resume o
     - [Closed Range Operator](#closed-range-operator)
     - [Half-Open Range Operator](#half-open-range-operator)
     - [One-Sided Ranges](#one-sided-ranges)
+- [String and Characters](string-and-characters)
 
 
 # The Basics
@@ -232,3 +233,18 @@ for name in names[2...] {
     print(name) // Brian, Jack
 }
 ```
+
+# String and Characters
+
+## Multiple String literals
+
+```swift
+let quotation = """
+The White Rabbit put on his spectacles.  "Where shall I begin,
+please your Majesty?" he asked.
+"""
+```
+
+- The escaped special characters \0 (null character), \\ (backslash), \t (horizontal tab), \n (line feed), \r (carriage return), \" (double quotation mark) and \' (single quotation mark)
+
+
