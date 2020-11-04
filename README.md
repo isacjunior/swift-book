@@ -22,6 +22,7 @@ The proposal of this repository is to create a document that contains a resume o
     - [Multiple String literals](#multiple-string-literals)
     - [Working with characters](#working-with-characters)
     - [String Interpolation](#string-interpolation)
+- [Collection Types](#collection-types)
 
 # The Basics
 
@@ -265,4 +266,10 @@ for character in "Dog!🐶" {
 let multiplier = 3
 let message = "\(multiplier) time 2.5 is \(Double(multiplier) * 2.5)" // 3 times 2.5 is 7.5
 ```
+
+# Collection Types
+
+Swift provides three primary collection types, know as arrays, sets, and dictionaries.
+
+![](https://docs.swift.org/swift-book/_images/CollectionTypes_intro_2x.png)
 
