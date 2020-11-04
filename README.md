@@ -21,7 +21,7 @@ The proposal of this repository is to create a document that contains a resume o
 - [String and Characters](string-and-characters)
     - [Multiple String literals](#multiple-string-literals)
     - [Working with characters](#working-with-characters)
-
+    - [String Interpolation](#string-interpolation)
 
 # The Basics
 
@@ -257,5 +257,12 @@ You can access the individual `Character` values for a `String` by iterating ove
 for character in "Dog!🐶" {
     print(character) // D, o, g, !, 🐶
 }
+```
+
+## String Interpolation
+
+```swift
+let multiplier = 3
+let message = "\(multiplier) time 2.5 is \(Double(multiplier) * 2.5)" // 3 times 2.5 is 7.5
 ```
 
