@@ -12,6 +12,10 @@ The proposal of this repository is to create a document that contains a resume o
     - [Optionals](#optionals)
     - [Forced Unwrapping](#forced-unwrapping)
     - [Optional Binding](#optional-binding)
+    - [Error Handling](#error-handling)
+- [Basic Operators](#basic-operators)
+    - [Nil-Coalescing Operator](#nil-coalescing-operator)
+    - [Closed Range Operator](#closed-range-operator)
 
 
 # The Basics
@@ -159,4 +163,49 @@ if let actualNumber = Int(possibleNumber) {
 ```
 > **NOTE:** Constant and variables created with optional binding is available only within the body of the body statement.
 
+## Error handling
 
+You use `error handling` to respond to error conditions your program may encounter during execution.
+
+```swift 
+func canThrowAnError() throws {
+    // ...
+}
+
+do {
+    try canThrowAnError()
+    // no error was thrown
+} catch {
+    // an error was thrown
+}
+```
+
+# Basic Operators
+
+## Nil-Coalescing Operator
+
+The nil-coalescing operator is shorthand for the code below:
+
+```swift
+a != nil ? a! : b
+```
+
+The example below uses the nil-coalescing operator to choose between a default color name and an optional user-defined color name:
+
+```swift
+let defaultColorName = "red"
+var userDefinedColorName: String?
+
+var colorNameToUse = userDefinedColorName ?? defaultColorName
+// userDefinedColorName is nil, so colorNameToUse is set to the default of "red"
+```
+
+## Closed Range Operator
+
+The `closed range operator` (a...b) defines a range the runs from `a` to `b`, and includes the values `a` and `b`. The value of `a` not be greater than `b`.
+
+```swift
+for index in 1...5 {
+    print("index: \(index)")
+}
+```
