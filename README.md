@@ -23,6 +23,10 @@ The proposal of this repository is to create a document that contains a resume o
     - [Working with characters](#working-with-characters)
     - [String Interpolation](#string-interpolation)
 - [Collection Types](#collection-types)
+- [Control Flow](#control-flow)
+    - [For-in Loops](#for-in-loops)
+    - [Switch](#switch)
+    - [Early Exit](#early-exit)
 
 # The Basics
 
@@ -286,4 +290,55 @@ var dictionariesSyntax = Dictionary<Int, String>()
 var dictionariesShortSyntax = [Int: String]()
 ```
 
+# Control Flow
 
+Swift provides a variety of control flow statements.
+
+## For-in Loops
+
+```swift
+// Array
+let names = ["Anna", "Alex", "Brian", "Jack"]
+for name in names {
+    print("Hello \(name)!")
+}
+
+// Dictionary
+let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
+for (animalName, legCount) in numberOfLegs {
+    print("\(animalName)s have \(legCount) legs")
+}
+```
+
+## Switch
+
+```swift
+let anotherCharacter: Character = "a"
+switch anotherCharacter {
+    case "a", "A":
+        print("The letter A")
+    default:
+        print("Not the letter A")
+}
+```
+
+## Early Exit
+
+a `guard` statement, like a `if` statement, executes statements depending on the Boolean value of an expression.
+
+```swift
+func greet(person: [String: String]) {
+    guard let name = person["name"] else {
+        return
+    }
+
+    print("Hello \(name)")
+
+    guard let location = person["location"] else {
+        print("I hope the weather is nice near your")
+        return
+    }
+
+    print("I hope the weather is nice in \(location)")
+}
+```
