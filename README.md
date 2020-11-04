@@ -273,3 +273,17 @@ Swift provides three primary collection types, know as arrays, sets, and diction
 
 ![](https://docs.swift.org/swift-book/_images/CollectionTypes_intro_2x.png)
 
+```swift
+// Array
+var arraySyntax = Array<Int>()
+var arrayShortSyntax = [Int]()
+
+// Set
+var setSyntax = Set<Character>()
+
+// Dictionaries
+var dictionariesSyntax = Dictionary<Int, String>()
+var dictionariesShortSyntax = [Int: String]()
+```
+
+
