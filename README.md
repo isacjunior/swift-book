@@ -16,6 +16,8 @@ The proposal of this repository is to create a document that contains a resume o
 - [Basic Operators](#basic-operators)
     - [Nil-Coalescing Operator](#nil-coalescing-operator)
     - [Closed Range Operator](#closed-range-operator)
+    - [Half-Open Range Operator](#half-open-range-operator)
+    - [One-Sided Ranges](#one-sided-ranges)
 
 
 # The Basics
@@ -202,10 +204,31 @@ var colorNameToUse = userDefinedColorName ?? defaultColorName
 
 ## Closed Range Operator
 
-The `closed range operator` (a...b) defines a range the runs from `a` to `b`, and includes the values `a` and `b`. The value of `a` not be greater than `b`.
+The `closed range operator (a...b)` defines a range the runs from `a` to `b`, and includes the values `a` and `b`. The value of `a` not be greater than `b`.
 
 ```swift
 for index in 1...5 {
     print("index: \(index)")
+}
+```
+
+## Half-Open Range Operator
+
+The `half-open range operator (a..<b)` defines a range that runs from `a` to `b`, but doesn't include `b`.
+
+```swift
+let names = ["Anna", "Alex", "Brian", "Jack"]
+let count = names.count
+print(count) // 4
+for i in 0..<count {
+    print(i) // 0,1,2,3
+}
+```
+
+## One-Sided Ranges
+
+```swift 
+for name in names[2...] {
+    print(name) // Brian, Jack
 }
 ```
