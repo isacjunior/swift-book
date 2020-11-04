@@ -27,6 +27,16 @@ The proposal of this repository is to create a document that contains a resume o
     - [For-in Loops](#for-in-loops)
     - [Switch](#switch)
     - [Early Exit](#early-exit)
+- [Functions](#functions)
+    - [Functions with Multiple Return Values](#functions-with-multiple-return-values)
+    - [Specifying Argument Labels](#specifying-argument-labels)
+    - [Omitting Argument Labels](#omitting-argument-labels)
+    - [In-Out Parameters](#in-out-parameters)
+    - [Implicit Return](#implicit-return)
+    - [Using Function Types](using-function-types)
+    - [Function Types as Parameters Types](#function-types-as-parameters)
+    - [Function Types as Return Types](#function-types-as-return-types)
+    - [Nested Function](#nested-functions)
 
 # The Basics
 
@@ -340,5 +350,115 @@ func greet(person: [String: String]) {
     }
 
     print("I hope the weather is nice in \(location)")
+}
+```
+
+# Functions
+
+## Functions with Multiple Return Values
+
+```swift
+func minMax(array: [Int]) -> (min: Int, max: Int) {
+    var currentMin = array[0]
+    var currentMax = array[0]
+    for value in array[1..<array.count] {
+        if value < currentMin {
+            currentMin = value
+        } else if value > currentMax {
+            currentMax = value
+        }
+    }
+    return (currentMin, currentMax)
+}
+let (min, max) = minMax(array: [1,2,5,6])
+```
+
+## Specifying Argument Labels
+
+You write an argument label before the parameter name, separated a space:\
+
+```swift
+func greeting(for person: String) {
+    print("Hello \(person)")
+}
+greeting(for: "Anna")
+```
+
+## Omitting Argument Labels
+
+If you don't want an argument labels for a parameter, write an underscore(_) instead of an explicit argument label for that parameter.
+
+```swift
+func greeting(_ person: String) {
+    print("Hello \(person)")
+}
+greeting("Anna")
+```
+
+## In-Out Parameters
+
+Function parameters are constants by default. If you want to modify a parameters value, define that parameter as an `in-out parameters` instead.
+
+```swift
+func greeting(_ person: inout String) {
+    person = "Alex"
+    print("Hello \(person)")
+}
+var name = "Ana"
+greeting(&name) // Hello Alex
+print(name) // Alex
+```
+
+> **NOTE:**
+`in-out parameters are an alternative way for a function to have an effect outside of the scope of its function body.`
+
+## Implicit Return
+
+```swift
+func addTwoInt(_ a: Int, _ b: Int) -> Int {
+    a + b
+}
+```
+
+## Using Function Types
+
+You use function type just like any other types in Swift.
+
+```swift
+var mathFunction: (Int, Int) -> Int = addTwoInt
+print("\(mathFunction(2, 3))") // 5
+```
+
+## Function Types as Parameter Types
+
+```swift
+func printMathResult(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
+    print("Result: \(mathFunction(a, b))")
+}
+printMathResult(addTwoInt, 3, 5) // 8
+```
+
+## Function Types as Return Types
+
+```swift
+func stepForward(_ input: Int) -> Int {
+    input + 1
+}
+func stepBackward(_ input: Int) -> Int {
+    input - 1
+}
+
+func chooseStepFunction(backward: Bool) -> (Int) -> Int {
+    backward ? stepBackward : steForward
+}
+```
+
+## Nested Functions
+
+```swift
+func chooseStepFunction(backward: Bool) -> (Int) -> Int {
+    func stepForward(input: Int) -> Int { return input + 1 }
+    func stepBackward(input: Int) -> Int { return input - 1 }
+    return backward ? stepBackward : stepForward
 }
 ```
