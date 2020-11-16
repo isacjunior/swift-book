@@ -37,6 +37,7 @@ The proposal of this repository is to create a document that contains a resume o
     - [Function Types as Parameters Types](#function-types-as-parameters)
     - [Function Types as Return Types](#function-types-as-return-types)
     - [Nested Function](#nested-functions)
+- [Closures](#closures)
 
 # The Basics
 
@@ -462,3 +463,50 @@ func chooseStepFunction(backward: Bool) -> (Int) -> Int {
     return backward ? stepBackward : stepForward
 }
 ```
+
+## Closures
+
+
+Closure Expression Syntax
+```
+{ (parameters) -> return type in
+    statements
+}
+```
+
+The example below shows a closure expression version of the `backward(_:_:)` function:
+
+```swift
+reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+    return s1 > s2
+})
+```
+
+### Inferring Type From Context
+
+```swift
+reversedNames = names.sorted(by: { s1, s2 in return s1 > s2 } )
+```
+
+### Implicit Returns from Single-Expression Closures
+
+```swift
+reversedNames = names.sorted(by: { s1, s2 in s1 > s2 })
+```
+
+### Shorthand Argument Names
+
+```swift
+reversedNames = names.sorted(by: { $0 > $1 } )
+```
+
+### Operator Methods
+
+```swift
+reversedNames = names.sorted(by: >)
+```
+
+
+
+
+
